@@ -1,6 +1,8 @@
 import AddTodo from "./components/AddTodo/AddTodo"
 import TodoList from "./components/TodoList/TodoList"
 import { useState } from "react"
+import TodoContext from "./context/TodoContext"
+
 
 function App() {
   const [list,setList] = useState([
@@ -9,13 +11,13 @@ function App() {
 ])
 
   return (
-    <>
+    <TodoContext.Provider value={{list,setList}}>
       <AddTodo updateList={(todo)=>setList([
         ... list,
         {id:list.length+1,todoData:todo,finished:false}
       ])}/>
-      <TodoList list={list} updateList={setList}/>
-    </>
+      <TodoList/>
+    </TodoContext.Provider>
   )
 }
 
