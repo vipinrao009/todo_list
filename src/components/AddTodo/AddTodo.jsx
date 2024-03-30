@@ -3,6 +3,7 @@ import { useState } from "react"
 function AddTodo({updateList}){
 
     const [inputText,setInputText] = useState('')
+    
     return(
         
         <div>
