@@ -16,7 +16,7 @@ function App() {
  
   return (
     <TodoContext.Provider value={{list}}>
-      <TodoDispatchContext.Provider value={dispatch}>
+      <TodoDispatchContext.Provider value={{dispatch}}>
         <AddTodo/>
         <TodoList/>
       </TodoDispatchContext.Provider>
