@@ -14,7 +14,7 @@ function todoReducer(state,action){
         let todo = action.payload.todo
         let todoText = action.payload.todoText
 
-        const updatedList = list.map((t)=>{
+        const updatedList = state.map((t)=>{
             if(t.id == todo.id){
                 todo.todoData = todoText
             }
@@ -23,6 +23,18 @@ function todoReducer(state,action){
 
         return updatedList
 
+    }else if(action.type == 'onFinished'){
+        const todo = action.payload.todo
+        const isFinished = action.payload.isFinished
+        const updatedList = state.map((t)=>{
+            if(t.id == todo.id){
+                todo.finished = isFinished
+            }
+            return t
+        })
+        return updatedList
+    }else{
+        return state;
     }
 }
 
