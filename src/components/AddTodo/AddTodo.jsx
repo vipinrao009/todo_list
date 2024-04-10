@@ -1,10 +1,8 @@
 import {useState } from "react"
-import { addTodo } from "../../actions/TodoAction"
-import {useDispatch} from 'react-redux'
-function AddTodo(){
+
+function AddTodo({addTodo}){
     
     const [inputText,setInputText] = useState('')
-    const dispatch = useDispatch()
     
     return(
         
@@ -16,7 +14,7 @@ function AddTodo(){
              onChange={e=>setInputText(e.target.value)}
             />
             <button onClick={()=>{
-                dispatch(addTodo(inputText))
+                (addTodo(inputText))
                 setInputText('')
             }}>Add</button>
         </div>
